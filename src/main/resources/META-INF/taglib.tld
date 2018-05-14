@@ -1,0 +1,3459 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>2.1</tlib-version>
+	<short-name>simp</short-name>
+	<uri>http://icts.uiowa.edu/ORCiDTagLib</uri>
+
+	<tag>
+		<name>getSequenceNumber</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.Sequence</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>dbtest</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.DBTest</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
+		<name>foreachProfile</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profile</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteProfile</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileUri</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileUri</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>uri</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profilePath</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfilePath</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>path</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileHost</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileHost</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>host</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileLocale</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileLocale</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileMethod</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileMethod</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>method</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileCompletion</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileCompletion</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>completion</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileSubmission</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileSubmission</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>submission</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileModified</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileModified</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>modified</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>profileClaimed</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileClaimed</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>claimed</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachBio</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bio</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteBio</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioGivenNames</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioGivenNames</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>givenNames</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioFamilyName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioFamilyName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>familyName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioCreditName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioCreditName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>creditName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioBiography</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioBiography</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>biography</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>bioCountry</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.bio.BioCountry</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>country</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachOtherName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>otherName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherName</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteOtherName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>otherNameID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>otherNameSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>otherNameName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>url</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.Url</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>urlID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>urlSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>urlName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>urlUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.url.UrlUrl</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachEmail</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>email</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.Email</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteEmail</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailEmail</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailEmail</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>email</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailPrime</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailPrime</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>prime</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailCurrent</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailCurrent</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>current</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>emailVerified</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.email.EmailVerified</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>verified</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachKeyword</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>keyword</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.Keyword</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteKeyword</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>keywordID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>keywordSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>keywordKeyword</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordKeyword</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>keyword</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdOrcidUri</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdOrcidUri</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>orcidUri</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdOrcidPath</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdOrcidPath</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>orcidPath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdOrcidHost</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdOrcidHost</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>orcidHost</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdReference</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdReference</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>reference</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>externalIdUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdUrl</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachWork</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>work</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.Work</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteWork</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workPutCode</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkPutCode</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>putCode</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workTitle</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkTitle</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workSubtitle</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkSubtitle</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>subtitle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workTranslation</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkTranslation</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>translation</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workTranslationLanguage</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkTranslationLanguage</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>translationLanguage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workJournal</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkJournal</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>journal</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workDescription</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkDescription</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>description</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workCitation</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkCitation</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>citation</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workCitationType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkCitationType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>citationType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workPublicationYear</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkPublicationYear</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>publicationYear</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workPublicationMonth</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkPublicationMonth</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>publicationMonth</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workPublicationDay</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkPublicationDay</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>publicationDay</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkUrl</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workLanguage</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkLanguage</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>language</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workCountry</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.work.WorkCountry</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>country</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachWorkExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>worknum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>worknum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteWorkExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>worknum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalIdID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalIdSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalIdWorknum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdWorknum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>worknum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalIdExternalType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdExternalType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>externalType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>workExternalIdExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdExternalId</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>externalId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachContributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>contnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>contributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.Contributor</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>contnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteContributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>contnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>contributorID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>contributorSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>contributorContnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorContnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>contnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>contributorName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachAffiliation</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliation</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteAffiliation</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationDepartment</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationDepartment</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>department</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationTitle</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationTitle</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationStartDate</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationStartDate</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>startDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>dateStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>timeStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationStartDateToNow</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationStartDateToNow</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>startDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationEndDate</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationEndDate</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>endDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>dateStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>timeStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationEndDateToNow</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationEndDateToNow</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>endDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationOrganization</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationOrganization</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>organization</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationCity</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationCity</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>city</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationRegion</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationRegion</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>region</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationCountry</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationCountry</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>country</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationDisambiguationId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationDisambiguationId</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>disambiguationId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>affiliationDisambiguationSource</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationDisambiguationSource</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>disambiguationSource</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachFunding</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>funding</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteFunding</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingOrgType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingOrgType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>orgType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingTitle</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingTitle</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingTranslatedTitle</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingTranslatedTitle</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>translatedTitle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingShortDescription</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingShortDescription</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>shortDescription</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingAmount</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingAmount</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>amount</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingCurrency</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingCurrency</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>currency</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingUrl</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingStartDate</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingStartDate</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>startDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>dateStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>timeStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingStartDateToNow</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingStartDateToNow</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>startDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingEndDate</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingEndDate</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>endDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>dateStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>timeStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingEndDateToNow</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingEndDateToNow</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>endDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingOrganization</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingOrganization</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>organization</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingCity</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingCity</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>city</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingRegion</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingRegion</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>region</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingCountry</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingCountry</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>country</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingDisambiguationId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingDisambiguationId</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>disambiguationId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingDisambiguationSource</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingDisambiguationSource</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>disambiguationSource</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachFundingExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteFundingExternalId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdSeqnum2</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdSeqnum2</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdType</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdType</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdValue</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdValue</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingExternalIdUrl</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdUrl</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>foreachFundingContributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorIterator</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>sortCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>limitCriteria</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>deleteFundingContributor</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorDeleter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorID</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorID</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>ID</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorSeqnum</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorSeqnum</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorSeqnum2</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorSeqnum2</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>seqnum2</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorOrcidId</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorOrcidId</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>orcidId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorCreditName</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorCreditName</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>creditName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorEmail</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorEmail</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>email</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>fundingContributorRole</name>
+		<tag-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorRole</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>role</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<function>
+		<name>profileCount</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileIterator</function-class>
+		<function-signature>java.lang.String profileCount()</function-signature>
+	</function>
+
+	<function>
+		<name>profileExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.ProfileIterator</function-class>
+		<function-signature>java.lang.String profileExists(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>profileIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileUriValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String uriValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profilePathValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String pathValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileHostValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String hostValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileLocaleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String localeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileMethodValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String methodValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileCompletionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String completionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileSubmissionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String submissionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileModifiedValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.String modifiedValue()</function-signature>
+	</function>
+
+	<function>
+		<name>profileClaimedValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.profile.Profile</function-class>
+		<function-signature>java.lang.Boolean claimedValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.BioIterator</function-class>
+		<function-signature>java.lang.String bioExists(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioCountByProfile</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.BioIterator</function-class>
+		<function-signature>java.lang.String bioCountByProfile(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>profileHasBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.BioIterator</function-class>
+		<function-signature>java.lang.Boolean profileHasBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioGivenNamesValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.String givenNamesValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioFamilyNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.String familyNameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioCreditNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.String creditNameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioBiographyValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.String biographyValue()</function-signature>
+	</function>
+
+	<function>
+		<name>bioCountryValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.bio.Bio</function-class>
+		<function-signature>java.lang.String countryValue()</function-signature>
+	</function>
+
+	<function>
+		<name>otherNameExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameIterator</function-class>
+		<function-signature>java.lang.String otherNameExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>otherNameCountByBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameIterator</function-class>
+		<function-signature>java.lang.String otherNameCountByBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioHasOtherName</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherNameIterator</function-class>
+		<function-signature>java.lang.Boolean bioHasOtherName(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>otherNameIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherName</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>otherNameSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherName</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>otherNameNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.otherName.OtherName</function-class>
+		<function-signature>java.lang.String nameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>urlExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.UrlIterator</function-class>
+		<function-signature>java.lang.String urlExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>urlCountByBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.UrlIterator</function-class>
+		<function-signature>java.lang.String urlCountByBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioHasUrl</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.UrlIterator</function-class>
+		<function-signature>java.lang.Boolean bioHasUrl(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>urlIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.Url</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>urlSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.Url</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>urlNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.Url</function-class>
+		<function-signature>java.lang.String nameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>urlUrlValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.url.Url</function-class>
+		<function-signature>java.lang.String urlValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.EmailIterator</function-class>
+		<function-signature>java.lang.String emailExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>emailCountByBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.EmailIterator</function-class>
+		<function-signature>java.lang.String emailCountByBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioHasEmail</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.EmailIterator</function-class>
+		<function-signature>java.lang.Boolean bioHasEmail(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>emailIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailEmailValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.String emailValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailPrimeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.Boolean primeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailCurrentValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.Boolean currentValue()</function-signature>
+	</function>
+
+	<function>
+		<name>emailVerifiedValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.email.Email</function-class>
+		<function-signature>java.lang.Boolean verifiedValue()</function-signature>
+	</function>
+
+	<function>
+		<name>keywordExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordIterator</function-class>
+		<function-signature>java.lang.String keywordExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>keywordCountByBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordIterator</function-class>
+		<function-signature>java.lang.String keywordCountByBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioHasKeyword</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.KeywordIterator</function-class>
+		<function-signature>java.lang.Boolean bioHasKeyword(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>keywordIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.Keyword</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>keywordSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.Keyword</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>keywordKeywordValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.keyword.Keyword</function-class>
+		<function-signature>java.lang.String keywordValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdIterator</function-class>
+		<function-signature>java.lang.String externalIdExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdCountByBio</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdIterator</function-class>
+		<function-signature>java.lang.String externalIdCountByBio(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>bioHasExternalId</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalIdIterator</function-class>
+		<function-signature>java.lang.Boolean bioHasExternalId(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdOrcidUriValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String orcidUriValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdOrcidPathValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String orcidPathValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdOrcidHostValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String orcidHostValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String nameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdReferenceValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String referenceValue()</function-signature>
+	</function>
+
+	<function>
+		<name>externalIdUrlValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.externalId.ExternalId</function-class>
+		<function-signature>java.lang.String urlValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.WorkIterator</function-class>
+		<function-signature>java.lang.String workExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workCountByProfile</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.WorkIterator</function-class>
+		<function-signature>java.lang.String workCountByProfile(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>profileHasWork</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.WorkIterator</function-class>
+		<function-signature>java.lang.Boolean profileHasWork(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workPutCodeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String putCodeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workTitleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String titleValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workSubtitleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String subtitleValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workTranslationValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String translationValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workTranslationLanguageValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String translationLanguageValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workJournalValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String journalValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workDescriptionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String descriptionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workCitationValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String citationValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workCitationTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String citationTypeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String typeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workPublicationYearValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String publicationYearValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workPublicationMonthValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String publicationMonthValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workPublicationDayValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String publicationDayValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workUrlValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String urlValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workLanguageValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String languageValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workCountryValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.work.Work</function-class>
+		<function-signature>java.lang.String countryValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdIterator</function-class>
+		<function-signature>java.lang.String workExternalIdExists(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdCountByWork</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdIterator</function-class>
+		<function-signature>java.lang.String workExternalIdCountByWork(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workHasWorkExternalId</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalIdIterator</function-class>
+		<function-signature>java.lang.Boolean workHasWorkExternalId(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdWorknumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</function-class>
+		<function-signature>java.lang.Integer worknumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdExternalTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</function-class>
+		<function-signature>java.lang.String externalTypeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>workExternalIdExternalIdValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.workExternalId.WorkExternalId</function-class>
+		<function-signature>java.lang.String externalIdValue()</function-signature>
+	</function>
+
+	<function>
+		<name>contributorExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorIterator</function-class>
+		<function-signature>java.lang.String contributorExists(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>contributorCountByWork</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorIterator</function-class>
+		<function-signature>java.lang.String contributorCountByWork(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>workHasContributor</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.ContributorIterator</function-class>
+		<function-signature>java.lang.Boolean workHasContributor(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>contributorIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.Contributor</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>contributorSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.Contributor</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>contributorContnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.Contributor</function-class>
+		<function-signature>java.lang.Integer contnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>contributorNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.contributor.Contributor</function-class>
+		<function-signature>java.lang.String nameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationIterator</function-class>
+		<function-signature>java.lang.String affiliationExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationCountByProfile</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationIterator</function-class>
+		<function-signature>java.lang.String affiliationCountByProfile(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>profileHasAffiliation</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.AffiliationIterator</function-class>
+		<function-signature>java.lang.Boolean profileHasAffiliation(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String typeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationDepartmentValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String departmentValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationTitleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String titleValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationStartDateValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.Date startDateValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationEndDateValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.Date endDateValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationOrganizationValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String organizationValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationCityValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String cityValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationRegionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String regionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationCountryValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String countryValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationDisambiguationIdValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String disambiguationIdValue()</function-signature>
+	</function>
+
+	<function>
+		<name>affiliationDisambiguationSourceValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.affiliation.Affiliation</function-class>
+		<function-signature>java.lang.String disambiguationSourceValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingIterator</function-class>
+		<function-signature>java.lang.String fundingExists(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingCountByProfile</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingIterator</function-class>
+		<function-signature>java.lang.String fundingCountByProfile(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>profileHasFunding</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.FundingIterator</function-class>
+		<function-signature>java.lang.Boolean profileHasFunding(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String typeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingOrgTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String orgTypeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingTitleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String titleValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingTranslatedTitleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String translatedTitleValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingShortDescriptionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String shortDescriptionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingAmountValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String amountValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingCurrencyValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String currencyValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingUrlValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String urlValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingStartDateValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.Date startDateValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingEndDateValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.Date endDateValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingOrganizationValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String organizationValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingCityValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String cityValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingRegionValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String regionValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingCountryValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String countryValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingDisambiguationIdValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String disambiguationIdValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingDisambiguationSourceValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.funding.Funding</function-class>
+		<function-signature>java.lang.String disambiguationSourceValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdIterator</function-class>
+		<function-signature>java.lang.String fundingExternalIdExists(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdCountByFunding</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdIterator</function-class>
+		<function-signature>java.lang.String fundingExternalIdCountByFunding(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingHasFundingExternalId</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalIdIterator</function-class>
+		<function-signature>java.lang.Boolean fundingHasFundingExternalId(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdSeqnum2Value</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.Integer seqnum2Value()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdTypeValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.String typeValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdValueValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.String valueValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingExternalIdUrlValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingExternalId.FundingExternalId</function-class>
+		<function-signature>java.lang.String urlValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorExists</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorIterator</function-class>
+		<function-signature>java.lang.String fundingContributorExists(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorCountByFunding</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorIterator</function-class>
+		<function-signature>java.lang.String fundingContributorCountByFunding(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingHasFundingContributor</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributorIterator</function-class>
+		<function-signature>java.lang.Boolean fundingHasFundingContributor(java.lang.String, java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorIDValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.Integer IDValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorSeqnumValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.Integer seqnumValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorSeqnum2Value</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.Integer seqnum2Value()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorOrcidIdValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.String orcidIdValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorCreditNameValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.String creditNameValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorEmailValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.String emailValue()</function-signature>
+	</function>
+
+	<function>
+		<name>fundingContributorRoleValue</name>
+		<function-class>edu.uiowa.slis.ORCiDTagLib.fundingContributor.FundingContributor</function-class>
+		<function-signature>java.lang.String roleValue()</function-signature>
+	</function>
+</taglib>
