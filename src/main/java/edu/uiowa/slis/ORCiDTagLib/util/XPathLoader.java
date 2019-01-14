@@ -59,7 +59,7 @@ public class XPathLoader implements Runnable {
 	    threadVector.add(thread);
 	}
 
-	processTarFile("/Volumes/SSD/ORCID/ORCID_public_data_file_2014.tar");
+	processTarFile("/usr/local/RAID/Corpora/ORCiD/public_profiles.tar");
 	running = false;
 
 	for (Thread thread : threadVector) {
@@ -306,8 +306,8 @@ public class XPathLoader implements Runnable {
 	    logger.debug("\t\tprimary: " + primary);
 	    logger.debug("\t\tcurrent: " + current);
 	    logger.debug("\t\tverified: " + verified);
-	    logger.info("\t\tsource: " + source);
-	    logger.info("\t\tsourceClientID: " + sourceClientID);
+	    logger.debug("\t\tsource: " + source);
+	    logger.debug("\t\tsourceClientID: " + sourceClientID);
 
 	    PreparedStatement substmt = conn.prepareStatement("insert into orcid_dump.email values(?,?,?,?,?,?)");
 	    substmt.setInt(1, id);
