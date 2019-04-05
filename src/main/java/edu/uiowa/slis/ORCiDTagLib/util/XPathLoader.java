@@ -70,8 +70,9 @@ public class XPathLoader implements Runnable {
     static Connection getConnection() throws ClassNotFoundException, SQLException {
 	Connection local = null;
 	Properties props = new Properties();
-	props.setProperty("user", "eichmann");
-	props.setProperty("password", "translational");
+	LocalProperties prop_file = PropertyLoader.loadProperties("orcid");
+	props.setProperty("user", prop_file.getProperty("jdbc.user"));
+	props.setProperty("password", prop_file.getProperty("jdbc.password"));
 	// props.setProperty("sslfactory",
 	// "org.postgresql.ssl.NonValidatingFactory");
 	// props.setProperty("ssl", "true");
