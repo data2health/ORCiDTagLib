@@ -141,6 +141,7 @@ src/main/java/edu/uiowa/slis/ORCiDTagLib/url/UrlIterator.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/url/UrlName.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/url/UrlSeqnum.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/url/UrlUrl.java -text
+src/main/java/edu/uiowa/slis/ORCiDTagLib/util/Loader.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/util/LocalProperties.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/util/NameSpaceEradicator.java -text
 src/main/java/edu/uiowa/slis/ORCiDTagLib/util/PropertyLoader.java -text
