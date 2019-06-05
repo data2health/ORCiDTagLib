@@ -180,5 +180,6 @@ src/non-packaged-resources/Model.clay -text
 src/non-packaged-resources/orcid-message-1.0.22.xsd -text
 src/non-packaged-resources/orcid-message-1.1.xsd -text
 src/non-packaged-resources/orcid-message-1.2.xsd -text
+src/non-packaged-resources/views.sql -text
 src/test/java/edu/uiowa/slis/ORCiDTagLib/README.txt -text
 src/test/resources/README.txt -text
