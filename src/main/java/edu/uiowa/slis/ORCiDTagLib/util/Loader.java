@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.SQLXML;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -25,7 +24,7 @@ public class Loader {
 	PropertyConfigurator.configure(args[0]);
 	localConn = getConnection();
 
-	scan("/Users/eichmann/downloads/orcid/data/v2.0-summaries");
+	scan("/Volumes/Pegasus3/Corpora/ORCiD/data/v2.0-summaries");
     }
 
     static void scan(String rootDirectory) throws FileNotFoundException, DocumentException {
