@@ -97,7 +97,7 @@ xmltable(
 
 create view staging_other_name as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/other-name' as "other-name",
@@ -112,7 +112,7 @@ xmltable(
 
 create view staging_biography as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -128,7 +128,7 @@ xmltable(
 
 create view staging_researcher_url as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -144,7 +144,7 @@ xmltable(
 
 create view staging_email as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -159,7 +159,7 @@ xmltable(
 
 create view staging_address as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -174,7 +174,7 @@ xmltable(
 
 create view staging_keyword as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -189,7 +189,7 @@ xmltable(
 
 create view staging_external_identifier as
 select id,orcid_id,xmltable.* from 
-person,
+staging_person,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/person' as person,
@@ -226,7 +226,7 @@ xmltable(
 
 create view staging_education as
 select id,orcid_id,xmltable.* from 
-activity,
+staging_activity,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/activities' as activities,
@@ -257,7 +257,7 @@ xmltable(
 
 create view staging_employment as
 select id,orcid_id,xmltable.* from 
-activity,
+staging_activity,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/activities' as activities,
@@ -289,7 +289,7 @@ xmltable(
 
 create view staging_funding as
 select id,orcid_id,xmltable.* from 
-activity,
+staging_activity,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/activities' as activities,
@@ -325,7 +325,7 @@ xmltable(
 
 create view staging_work as
 select id,orcid_id,xmltable.* from 
-activity,
+staging_activity,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/activities' as activities,
@@ -346,7 +346,7 @@ xmltable(
 
 create view staging_work_external_id as
 select id,orcid_id,seqnum,xmltable.* from 
-work,
+staging_work,
 xmltable(
     xmlnamespaces(
         'http://www.orcid.org/ns/activities' as activities,
