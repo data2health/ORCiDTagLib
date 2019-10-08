@@ -1,0 +1,14 @@
+insert into orcid.person select id,orcid_id,given_names,family_name,credit_name from orcid_staging.staging_person;
+insert into orcid.history select * from orcid_staging.staging_history;
+insert into orcid.biography select * from orcid_staging.staging_biography;
+insert into orcid.researcher_url select * from orcid_staging.staging_researcher_url;
+insert into orcid.email select * from orcid_staging.staging_email;
+insert into orcid.address select * from orcid_staging.staging_address;
+insert into orcid.other_name select * from orcid_staging.staging_other_name;
+insert into orcid.keyword select * from orcid_staging.staging_keyword;
+insert into orcid.external_identifier select * from orcid_staging.staging_external_identifier;
+insert into orcid.education select * from orcid_staging.staging_education;
+insert into orcid.employment select * from orcid_staging.staging_employment;
+insert into orcid.funding select * from orcid_staging.staging_funding;
+insert into orcid.work select id,orcid_id,seqnum,title,type,pub_year_pub_month,pub_day from orcid_staging.staging_work;
+insert into orcid.work_external_id select * from orcid_staging.staging_work_external_id;

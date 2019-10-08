@@ -177,9 +177,12 @@ src/main/java/edu/uiowa/slis/ORCiDTagLib/workExternalId/WorkExternalIdSeqnum.jav
 src/main/java/edu/uiowa/slis/ORCiDTagLib/workExternalId/WorkExternalIdWorknum.java -text
 src/main/resources/META-INF/taglib.tld -text
 src/non-packaged-resources/Model.clay -text
+src/non-packaged-resources/Model2020.clay -text svneol=unset#application/xml
+src/non-packaged-resources/Model2020.sql -text
 src/non-packaged-resources/orcid-message-1.0.22.xsd -text
 src/non-packaged-resources/orcid-message-1.1.xsd -text
 src/non-packaged-resources/orcid-message-1.2.xsd -text
+src/non-packaged-resources/populate.sql -text
 src/non-packaged-resources/views.sql -text
 src/test/java/edu/uiowa/slis/ORCiDTagLib/README.txt -text
 src/test/resources/README.txt -text
