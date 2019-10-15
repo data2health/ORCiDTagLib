@@ -33,21 +33,24 @@ public class Loader {
 	    scan("/Volumes/Pegasus3/Corpora/ORCiD/data/v2.0-summaries");
 	else if (args.length > 1 && args[1].equals("-materialize")) {
 	    materialize();
+	} else if (args.length > 1 && args[1].equals("-rematerialize")) {
+	    rematerialize();
 	} else {
 	    update();	    
 	}
     }
     
     static void materialize() throws SQLException {
-//	materialize("person", "id,orcid_id,given_names,family_name,credit_name");
+	materialize("person", "id,orcid_id,given_names,family_name,credit_name");
 	materialize("address","*");
 	materialize("biography","*");
 	materialize("education","*");
 	materialize("email","*");
 	materialize("employment","*");
 	materialize("external_identifier","*");
-	materialize("funding","*");
-//	materialize("history","*");
+	materialize("funding","id,orcid_id,seqnum,title,translated_title,type,start_year,start_month,start_day,end_year,end_month,end_day,organization,city,region,country,org_id,id_source");
+	materialize("funding_external_id","*");
+	materialize("history","*");
 	materialize("keyword","*");
 	materialize("other_name","*");
 	materialize("researcher_url","*");
@@ -73,6 +76,43 @@ public class Loader {
 	    }
 	}
 	checkStmt.close();
+    }
+    
+    static void rematerialize() throws SQLException {
+	logger.info("scanning for existing records...");
+	PreparedStatement stmt = localConn.prepareStatement("delete from orcid.person where orcid_id in (select orcid_id from orcid_staging.queue)");
+	int count = stmt.executeUpdate();
+	stmt.close();
+	logger.info("\tdeleted " + count + " existing records");
+
+	rematerialize("person", "id,orcid_id,given_names,family_name,credit_name");
+	rematerialize("address", "*");
+	rematerialize("biography", "*");
+	rematerialize("education", "*");
+	rematerialize("email", "*");
+	rematerialize("employment", "*");
+	rematerialize("external_identifier", "*");
+	rematerialize("funding", "id,orcid_id,seqnum,title,translated_title,type,start_year,start_month,start_day,end_year,end_month,end_day,organization,city,region,country,org_id,id_source");
+	rematerialize("funding_external_id", "*");
+	rematerialize("history", "*");
+	rematerialize("keyword", "*");
+	rematerialize("other_name", "*");
+	rematerialize("researcher_url", "*");
+	rematerialize("work", "id,orcid_id,seqnum,title,type,pub_year,pub_month,pub_day");
+	rematerialize("work_external_id", "*");
+
+	logger.info("truncating queue...");
+	stmt = localConn.prepareStatement("truncate orcid_staging.queue");
+	count = stmt.executeUpdate();
+	stmt.close();
+    }
+
+    static void rematerialize(String table, String attributes) throws SQLException {
+	logger.info("rematerializing " + table + "...");
+	PreparedStatement stmt = localConn.prepareStatement("insert into orcid." + table + " select " + attributes + " from orcid_staging.staging_" + table + " where id in (select id from orcid_staging.xml where orcid_id in (select orcid_id from orcid_staging.queue))");
+	int count = stmt.executeUpdate();
+	stmt.close();
+	logger.info("\tcount: " + count);
     }
     
     static void update() throws IOException, SQLException {

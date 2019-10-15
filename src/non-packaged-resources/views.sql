@@ -306,9 +306,8 @@ xmltable(
         seqnum FOR ORDINALITY,
         title text path 'work:title/work:title/text()',
         translated_title text path 'work:title/common:translated-title/text()',
-        id_type text path 'common:external-ids/common:external-id/common:external-id-type/text()',
-        id_value text path 'common:external-ids/common:external-id/common:external-id-value/text()',
-        id_relationship text path 'common:external-ids/common:external-id/common:external-id-relationship/text()',
+        external_ids xml path 'common:external-ids',
+        type text path 'funding:type/text()',
         start_year text path 'common:start-date/common:year/text()',
         start_month text path 'common:start-date/common:month/text()',
         start_day text path 'common:start-date/common:day/text()',
@@ -321,6 +320,24 @@ xmltable(
         country text path 'education:organization/address:address/address:country/text()',
         org_id text path 'education:organization/common:disambiguated-organization/common:disambiguated-organization-identifier/text()',
         id_source text path 'education:organization/common:disambiguated-organization/common:disambiguation-source/text()'
+        );
+
+create view staging_funding_external_id as
+select id,orcid_id,seqnum,xmltable.* from 
+staging_funding,
+xmltable(
+    xmlnamespaces(
+        'http://www.orcid.org/ns/activities' as activities,
+        'http://www.orcid.org/ns/common' as common,
+        'http://www.orcid.org/ns/work' as work
+        ),
+    '//common:external-ids/common:external-id'
+    passing external_ids
+    columns
+        seqnum2 FOR ORDINALITY,
+        type text path 'common:external-id-type/text()',
+        value text path 'common:external-id-value/text()',
+        relationship text path 'common:external-id-relationship/text()'
         );
 
 create view staging_work as

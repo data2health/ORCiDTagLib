@@ -7,6 +7,30 @@ CREATE TABLE orcid.person (
      , PRIMARY KEY (id)
 );
 
+CREATE TABLE orcid.funding (
+       id INT NOT NULL
+     , orcid_id TEXT
+     , seqnum INT NOT NULL
+     , title TEXT
+     , translated_title TEXT
+     , type TEXT
+     , start_year TEXT
+     , start_month TEXT
+     , start_day TEXT
+     , end_year TEXT
+     , end_month TEXT
+     , end_day TEXT
+     , organization TEXT
+     , city TEXT
+     , region TEXT
+     , country TEXT
+     , org_id TEXT
+     , id_source TEXT
+     , PRIMARY KEY (id, seqnum)
+     , CONSTRAINT FK_funding_1 FOREIGN KEY (id)
+                  REFERENCES orcid.person (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 CREATE TABLE orcid.work (
        id INT NOT NULL
      , orcid_id TEXT
@@ -100,32 +124,6 @@ CREATE TABLE orcid.external_identifier (
                   REFERENCES orcid.person (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE orcid.funding (
-       id INT NOT NULL
-     , orcid_id TEXT
-     , seqnum INT NOT NULL
-     , title TEXT
-     , translated_title TEXT
-     , id_type TEXT
-     , id_value TEXT
-     , id_relationship TEXT
-     , start_year TEXT
-     , start_month TEXT
-     , start_day TEXT
-     , end_year TEXT
-     , end_month TEXT
-     , end_day TEXT
-     , organization TEXT
-     , city TEXT
-     , region TEXT
-     , country TEXT
-     , org_id TEXT
-     , id_source TEXT
-     , PRIMARY KEY (id, seqnum)
-     , CONSTRAINT FK_funding_1 FOREIGN KEY (id)
-                  REFERENCES orcid.person (id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
 CREATE TABLE orcid.history (
        id INT NOT NULL
      , creation_method TEXT
@@ -181,6 +179,19 @@ CREATE TABLE orcid.work_external_id (
      , PRIMARY KEY (id, seqnum, seqnum2)
      , CONSTRAINT FK_work_external_id_1 FOREIGN KEY (id, seqnum)
                   REFERENCES orcid.work (id, seqnum) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE orcid.funding_external_id (
+       id INT NOT NULL
+     , orcid_id TEXT
+     , seqnum INT NOT NULL
+     , seqnum2 INT NOT NULL
+     , type TEXT
+     , value TEXT
+     , relationship TEXT
+     , PRIMARY KEY (id, seqnum, seqnum2)
+     , CONSTRAINT FK_funding_external_id_1 FOREIGN KEY (id, seqnum)
+                  REFERENCES orcid.funding (id, seqnum) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE orcid.address (
