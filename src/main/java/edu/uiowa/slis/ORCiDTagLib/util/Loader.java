@@ -37,6 +37,7 @@ public class Loader {
 	    rematerialize();
 	} else {
 	    update();	    
+	    rematerialize();
 	}
     }
     
@@ -85,29 +86,37 @@ public class Loader {
 	stmt.close();
 	logger.info("\tdeleted " + count + " existing records");
 
-	rematerialize("person", "id,orcid_id,given_names,family_name,credit_name");
-	rematerialize("address", "*");
-	rematerialize("biography", "*");
-	rematerialize("education", "*");
-	rematerialize("email", "*");
-	rematerialize("employment", "*");
-	rematerialize("external_identifier", "*");
-	rematerialize("funding", "id,orcid_id,seqnum,title,translated_title,type,start_year,start_month,start_day,end_year,end_month,end_day,organization,city,region,country,org_id,id_source");
-	rematerialize("funding_external_id", "*");
-	rematerialize("history", "*");
-	rematerialize("keyword", "*");
-	rematerialize("other_name", "*");
-	rematerialize("researcher_url", "*");
-	rematerialize("work", "id,orcid_id,seqnum,title,type,pub_year,pub_month,pub_day");
-	rematerialize("work_external_id", "*");
+	rematerialize(count, "person", "id,orcid_id,given_names,family_name,credit_name");
+	rematerialize(count, "address", "*");
+	rematerialize(count, "biography", "*");
+	rematerialize(count, "education", "*");
+	rematerialize(count, "email", "*");
+	rematerialize(count, "employment", "*");
+	rematerialize(count, "external_identifier", "*");
+	rematerialize(count, "funding", "id,orcid_id,seqnum,title,translated_title,type,start_year,start_month,start_day,end_year,end_month,end_day,organization,city,region,country,org_id,id_source");
+	rematerialize(count, "funding_external_id", "*");
+	rematerialize(count, "history", "*");
+	rematerialize(count, "keyword", "*");
+	rematerialize(count, "other_name", "*");
+	rematerialize(count, "researcher_url", "*");
+	rematerialize(count, "work", "id,orcid_id,seqnum,title,type,pub_year,pub_month,pub_day");
+	rematerialize(count, "work_external_id", "*");
 
 	logger.info("truncating queue...");
 	stmt = localConn.prepareStatement("truncate orcid_staging.queue");
 	count = stmt.executeUpdate();
 	stmt.close();
     }
+    
+    static void rematerialize(int count, String table, String attributes) throws SQLException {
+	// postmaster can die on really big XMLtable query results (memory leak, probably)
+	if (count < 200000)
+	    old_rematerialize(table, attributes);
+	else
+	    new_rematerialize(table, attributes);
+    }
 
-    static void rematerialize(String table, String attributes) throws SQLException {
+    static void old_rematerialize(String table, String attributes) throws SQLException {
 	logger.info("rematerializing " + table + "...");
 	PreparedStatement stmt = localConn.prepareStatement("insert into orcid." + table + " select " + attributes + " from orcid_staging.staging_" + table + " where id in (select id from orcid_staging.xml where orcid_id in (select orcid_id from orcid_staging.queue))");
 	int count = stmt.executeUpdate();
@@ -115,6 +124,25 @@ public class Loader {
 	logger.info("\tcount: " + count);
     }
     
+    static void new_rematerialize(String table, String attributes) throws SQLException {
+	PreparedStatement checkStmt = localConn.prepareStatement("select min(id), max(id) from orcid_staging.xml");
+	ResultSet rs = checkStmt.executeQuery();
+	while (rs.next()) {
+	    int min = rs.getInt(1);
+	    int max = rs.getInt(2);
+	    logger.info(table + " min: " + min / 1000000 + "\tmax: " + max / 1000000);
+	    for (int fence = min / 1000000; fence <= max / 1000000; fence++) {
+		logger.info("\tfence: " + fence * 1000000 + " : " + (fence + 1) * 1000000);
+		PreparedStatement stmt = localConn.prepareStatement("insert into orcid." + table + " select " + attributes + " from orcid_staging.staging_" + table + " where id >= ? and id < ? and id in (select id from orcid_staging.xml where orcid_id in (select orcid_id from orcid_staging.queue))");
+		stmt.setInt(1, fence * 1000000);
+		stmt.setInt(2, (fence + 1) * 1000000);
+		int count = stmt.executeUpdate();
+		stmt.close();
+		logger.info("\tcount: " + count);
+	    }
+	}
+	checkStmt.close();
+    }
     static void update() throws IOException, SQLException {
         // read files from stdin
         BufferedReader IODesc = new BufferedReader(new InputStreamReader(System.in));
