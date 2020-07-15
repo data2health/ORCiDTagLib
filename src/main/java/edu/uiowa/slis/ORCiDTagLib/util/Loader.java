@@ -85,6 +85,7 @@ public class Loader {
 	int count = stmt.executeUpdate();
 	stmt.close();
 	logger.info("\tdeleted " + count + " existing records");
+	count = 100000;
 
 	rematerialize(count, "person", "id,orcid_id,given_names,family_name,credit_name");
 	rematerialize(count, "address", "*");
@@ -110,10 +111,10 @@ public class Loader {
     
     static void rematerialize(int count, String table, String attributes) throws SQLException {
 	// postmaster can die on really big XMLtable query results (memory leak, probably)
-	if (count < 200000)
-	    old_rematerialize(table, attributes);
-	else
-	    new_rematerialize(table, attributes);
+//	if (count < 200000)
+//	    old_rematerialize(table, attributes);
+//	else
+	    new_rematerialize(count, table, attributes);
     }
 
     static void old_rematerialize(String table, String attributes) throws SQLException {
@@ -124,21 +125,21 @@ public class Loader {
 	logger.info("\tcount: " + count);
     }
     
-    static void new_rematerialize(String table, String attributes) throws SQLException {
-	PreparedStatement checkStmt = localConn.prepareStatement("select min(id), max(id) from orcid_staging.xml");
+    static void new_rematerialize(int count, String table, String attributes) throws SQLException {
+	PreparedStatement checkStmt = localConn.prepareStatement("select min(id), max(id) from orcid_staging.xml where exists (select * from orcid_staging.queue where xml.orcid_id = queue.orcid_id)");
 	ResultSet rs = checkStmt.executeQuery();
 	while (rs.next()) {
 	    int min = rs.getInt(1);
 	    int max = rs.getInt(2);
-	    logger.info(table + " min: " + min / 1000000 + "\tmax: " + max / 1000000);
-	    for (int fence = min / 1000000; fence <= max / 1000000; fence++) {
-		logger.info("\tfence: " + fence * 1000000 + " : " + (fence + 1) * 1000000);
+	    logger.info(table + " min: " + min / count + "\tmax: " + max / count);
+	    for (int fence = min / count; fence <= max / count; fence++) {
+		logger.info("\tfence: " + fence * count + " : " + (fence + 1) * count);
 		PreparedStatement stmt = localConn.prepareStatement("insert into orcid." + table + " select " + attributes + " from orcid_staging.staging_" + table + " where id >= ? and id < ? and id in (select id from orcid_staging.xml where orcid_id in (select orcid_id from orcid_staging.queue))");
-		stmt.setInt(1, fence * 1000000);
-		stmt.setInt(2, (fence + 1) * 1000000);
-		int count = stmt.executeUpdate();
+		stmt.setInt(1, fence * count);
+		stmt.setInt(2, (fence + 1) * count);
+		int rescount = stmt.executeUpdate();
 		stmt.close();
-		logger.info("\tcount: " + count);
+		logger.info("\tcount: " + rescount);
 	    }
 	}
 	checkStmt.close();
