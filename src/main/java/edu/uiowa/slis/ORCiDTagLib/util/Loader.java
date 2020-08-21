@@ -42,7 +42,7 @@ public class Loader {
     }
     
     static void materialize() throws SQLException {
-	materialize("person", "id,orcid_id,given_names,family_name,credit_name");
+	materialize("person", "id,orcid_id,trim(given_names),trim(family_name),trim(credit_name)");
 	materialize("address","*");
 	materialize("biography","*");
 	materialize("education","*");
