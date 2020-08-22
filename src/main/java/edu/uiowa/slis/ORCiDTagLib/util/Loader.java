@@ -152,7 +152,7 @@ public class Loader {
             logger.trace("log string: " + current);
             String path = current.replaceAll(".*Volumes", "/Volumes");
             String orcidID = path.substring(path.lastIndexOf('/')+1, path.lastIndexOf('.'));
-            logger.info("path: " + path + "\torcidID: " + orcidID);
+            logger.debug("path: " + path + "\torcidID: " + orcidID);
             
             PreparedStatement stmt = localConn.prepareStatement("delete from orcid_staging.xml where orcid_id = ?");
 	    stmt.setString(1, orcidID);
@@ -190,7 +190,7 @@ public class Loader {
 	    Document document = reader.read(new FileInputStream(file));
 	    NameSpaceEradicator.removeAllNamespaces(document);
 	    String orcidID = document.getRootElement().selectSingleNode("orcid-identifier").selectSingleNode("path").getText();
-	    logger.info("\torcidID: " + orcidID);
+	    logger.debug("\torcidID: " + orcidID);
 
 	    PreparedStatement stmt = localConn.prepareStatement("insert into orcid_staging.xml(orcid_id,raw) values(?,?::xml)");
 	    stmt.setString(1, orcidID);
@@ -198,7 +198,7 @@ public class Loader {
 	    stmt.execute();
 	    stmt.close();
 	} catch (Exception e) {
-	    logger.info("skipping...");
+	    logger.debug("skipping...");
 	}
     }
 
