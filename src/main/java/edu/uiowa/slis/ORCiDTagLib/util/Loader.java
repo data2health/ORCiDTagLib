@@ -112,17 +112,17 @@ public class Loader {
 
 	static void rematerialize(int count, String table, String attributes) throws SQLException {
 		// postmaster can die on really big XMLtable query results (memory leak, probably)
-//	if (count < 200000)
-//	    old_rematerialize(table, attributes);
-//	else
-		new_rematerialize(count, table, attributes);
+//		if (count < 200000)
+			old_rematerialize(table, attributes);
+//		else
+//			new_rematerialize(count, table, attributes);
 	}
 
 	static void old_rematerialize(String table, String attributes) throws SQLException {
 		logger.info("rematerializing " + table + "...");
 		PreparedStatement stmt = localConn.prepareStatement("insert into orcid." + table + " select " + attributes
 				+ " from orcid_staging.staging_" + table
-				+ " where id in (select id from orcid_staging.xml where orcid_id in (select orcid_id from orcid_staging.queue))");
+				+ " where id in (select id from orcid_staging.xml natural join orcid_staging.queue)");
 		int count = stmt.executeUpdate();
 		stmt.close();
 		logger.info("\tcount: " + count);
