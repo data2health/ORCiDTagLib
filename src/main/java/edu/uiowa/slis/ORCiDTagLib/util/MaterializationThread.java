@@ -37,7 +37,7 @@ public class MaterializationThread implements Runnable {
 								+ " natural join orcid_staging.queue");
 						int count = stmt.executeUpdate();
 						stmt.close();
-						logger.info("[" + formatter.format(threadID) + "]\tcount: " + count);
+						logger.info("[" + formatter.format(threadID) + "]\t" + theRequest.tableName + " count: " + count);
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
