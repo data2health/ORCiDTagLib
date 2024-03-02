@@ -126,6 +126,7 @@ CREATE TABLE orcid.external_identifier (
 
 CREATE TABLE orcid.history (
        id INT NOT NULL
+     , orcid_id TEXT
      , creation_method TEXT
      , submission_date TIMESTAMP
      , last_modified TIMESTAMP

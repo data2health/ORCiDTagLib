@@ -24,8 +24,11 @@ public class Loader {
 	static Properties prop_file = PropertyLoader.loadProperties("cd2h_neuromancer");
 	static Connection localConn = null;
 	static boolean initial = false;
+	static int maxCrawlerThreads = 6;
+	static Thread[] scannerThreads = new Thread[maxCrawlerThreads];
+	static MaterializationQueue theQueue = null;
 
-	public static void main(String[] args) throws DocumentException, ClassNotFoundException, SQLException, IOException {
+	public static void main(String[] args) throws Exception {
 		PropertyConfigurator.configure(args[0]);
 		localConn = getConnection();
 
@@ -34,7 +37,7 @@ public class Loader {
 		else if (args.length > 1 && args[1].equals("-materialize")) {
 			materialize();
 		} else if (args.length > 1 && args[1].equals("-rematerialize")) {
-			rematerialize();
+			new_rematerialize();
 		} else {
 			update();
 			rematerialize();
@@ -78,6 +81,37 @@ public class Loader {
 			}
 		}
 		checkStmt.close();
+	}
+	
+	static void new_rematerialize() throws ClassNotFoundException, SQLException, Exception {
+		theQueue = new MaterializationQueue();
+
+		for (int i = 0; i < maxCrawlerThreads; i++) {
+			logger.info("starting thread " + i);
+			Thread theThread = new Thread(new MaterializationThread(i, theQueue, getConnection()));
+			theThread.start();
+			scannerThreads[i] = theThread;
+		}
+
+		for (int i = 0; i < maxCrawlerThreads; i++) {
+			scannerThreads[i].join();
+		}
+	}
+	
+	static void respawn() throws ClassNotFoundException, SQLException, Exception {
+		for (int i = 0; i < maxCrawlerThreads; i++) {
+			if (scannerThreads[i] == null) {
+				Thread.sleep(5*1000); // wait for things to get fired up
+			}
+			logger.info("thread " + i + " : " + scannerThreads[i].getState());
+			if (! scannerThreads[i].isAlive()) { // something killed this thread (typically an out-of-memory error)
+				logger.info("\trestarting thread " + i);
+				Thread theThread = new Thread(new MaterializationThread(i, theQueue, getConnection()));
+				theThread.start();
+				scannerThreads[i] = theThread;
+			}
+		}
+		
 	}
 
 	static void rematerialize() throws SQLException {

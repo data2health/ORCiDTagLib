@@ -47,7 +47,7 @@ xmltable( xmlnamespaces(
 -- ----- view definitions
 
 create view staging_history as
-select id,xmltable.* from 
+select id,orcid_id,xmltable.* from 
 xml,
 xmltable( xmlnamespaces(
             'http://www.orcid.org/ns/record' as record,
