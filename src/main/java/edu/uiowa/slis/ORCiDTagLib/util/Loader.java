@@ -31,7 +31,7 @@ public class Loader {
 	public static void main(String[] args) throws Exception {
 		PropertyConfigurator.configure(args[0]);
 		localConn = getConnection();
-
+		
 		if (initial)
 			scan("/Volumes/Pegasus3/Corpora/ORCiD/data/v2.0-summaries");
 		else if (args.length > 1 && args[1].equals("-materialize")) {
@@ -193,7 +193,7 @@ public class Loader {
 			logger.trace("log string: " + current);
 			String path = current.replaceAll(".*Volumes", "/Volumes");
 			String orcidID = path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
-			logger.debug("path: " + path + "\torcidID: " + orcidID);
+//			logger.debug("path: " + path + "\torcidID: " + orcidID);
 
 			PreparedStatement stmt = localConn.prepareStatement("delete from orcid_staging.xml where orcid_id = ?");
 			stmt.setString(1, orcidID);
@@ -226,12 +226,13 @@ public class Loader {
 	}
 
 	static void loadFile(File file) {
+		String orcidID = null;
 		// logger.info("\tfile: " + file.getName());
 		try {
 			SAXReader reader = new SAXReader(false);
 			Document document = reader.read(new FileInputStream(file));
 			NameSpaceEradicator.removeAllNamespaces(document);
-			String orcidID = document.getRootElement().selectSingleNode("orcid-identifier").selectSingleNode("path").getText();
+			orcidID = document.getRootElement().selectSingleNode("orcid-identifier").selectSingleNode("path").getText();
 			logger.debug("\torcidID: " + orcidID);
 
 			PreparedStatement stmt = localConn.prepareStatement("insert into orcid_staging.xml(orcid_id,raw) values(?,?::xml)");
@@ -240,7 +241,7 @@ public class Loader {
 			stmt.execute();
 			stmt.close();
 		} catch (Exception e) {
-			logger.debug("skipping...");
+			logger.debug("skipping " + orcidID + "...");
 		}
 	}
 
